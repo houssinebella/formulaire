@@ -16,6 +16,26 @@ if ($_SERVER["REQUEST_METHOD"]=== "POST"){
     $filiaire = $_POST['filiaire'] ?? '';
     $motivation = $_POST['motivation'] ?? '';
     $erreurs = $_POST['erreurs']?? '';
+    
+     if (empty($nom)) {
+        $erreurs[] = "Le nom est obligatoire.";
+    }
+    if (empty($prenom)) {
+        $erreurs[] = "Le prenom est obligatoire.";
+    }
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erreurs[] = "Email invalide ou vide.";
+    }
+    if (!is_numeric($age) || $age < 1 || $age > 120) {
+        $erreurs[] = "Âge invalide.";
+    }
+    if (empty($filiaire)) {
+        $erreurs[] = "La filiere est obligatoire.";
+    }
+    if (empty($motivation)) {
+        $erreurs[] = "La motivation est obligatoire.";
+    }
+    
 }
 ?>
 <!DOCTYPE html>
