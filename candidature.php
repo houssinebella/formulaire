@@ -6,6 +6,17 @@ $age       = '';
 $filiere   = '';
 $motivation = '';
 $erreurs   = [];
+
+if ($_SERVER["REQUEST_METHOD"]=== "POST"){
+
+    $nom   = $_POST['nom']   ?? '';
+    $prenom = $_POST['prenom'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $age   = $_POST['age']   ?? '';
+    $filiaire = $_POST['filiaire'] ?? '';
+    $motivation = $_POST['motivation'] ?? '';
+    $erreurs = $_POST['erreurs']?? '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
